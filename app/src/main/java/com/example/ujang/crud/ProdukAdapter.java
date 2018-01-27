@@ -40,7 +40,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
         holder.Harga.setText(produks.get(position).getHarga());
         holder.NamaProduk.setText(produks.get(position).getNama());
         Picasso.with(holder.itemView.getContext())
-                .load(produks.get(position).getGambar())
+                .load("http://192.168.243.1/iak/produk"+produks.get(position).getGambar())
                 .into(holder.Gambar);
     }
 
