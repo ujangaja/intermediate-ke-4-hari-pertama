@@ -1,5 +1,6 @@
 package com.example.ujang.crud;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,13 +18,24 @@ public class BelajarAndroid extends AppCompatActivity {
     ProdukAdapter adapter;
     List<Produk> produks;
 
+    SwipeRefreshLayout refreshLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_belajar_android);
-        recyclerView = (RecyclerView)findViewById(R.id.produkView); 
+        recyclerView = (RecyclerView)findViewById(R.id.produkView);
+        refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
         manager = new LinearLayoutManager(BelajarAndroid.this);
         recyclerView.setLayoutManager(manager);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshLayout.setRefreshing(false);
+                loadProduk();
+            }
+        });
+
         
         loadProduk();
     }

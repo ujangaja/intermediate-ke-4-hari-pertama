@@ -39,8 +39,9 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
     public void onBindViewHolder(ProdukHolder holder, int position) {
         holder.Harga.setText(produks.get(position).getHarga());
         holder.NamaProduk.setText(produks.get(position).getNama());
+        holder.Stok.setText(produks.get(position).getStok());
         Picasso.with(holder.itemView.getContext())
-                .load("http://192.168.243.1/iak/produk"+produks.get(position).getGambar())
+                .load("http://192.168.243.1/iak/"+produks.get(position).getGambar())
                 .into(holder.Gambar);
     }
 
@@ -51,7 +52,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
 
     class ProdukHolder extends RecyclerView.ViewHolder{
         ImageView Gambar;
-        TextView Harga, NamaProduk;
+        TextView Harga, NamaProduk, Stok;
 
 
         public ProdukHolder(View itemView) {
@@ -59,6 +60,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
             Gambar = (ImageView)itemView.findViewById(R.id.gambar);
             Harga = (TextView)itemView.findViewById(R.id.harga);
             NamaProduk = (TextView)itemView.findViewById(R.id.nama);
+            Stok = (TextView)itemView.findViewById(R.id.stok);
         }
     }
 
