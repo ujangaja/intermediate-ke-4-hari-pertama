@@ -17,6 +17,7 @@
         android:textColor="#ff1313"
         android:textStyle="bold"
         android:textSize="18sp"
+        android:id="@+id/nama"
         android:text="Nama Produk"
         android:gravity="center"/>
 
