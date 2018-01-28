@@ -61,6 +61,8 @@ public class BelajarAndroid extends AppCompatActivity {
         switch (id){
             case R.id.tambah:
             startActivity(new Intent(BelajarAndroid.this,AddProduk.class));
+            case R.id.tambah_gambar:
+                startActivity(new Intent(BelajarAndroid.this,AddProdukGambar.class));
         }
 
         return super.onOptionsItemSelected(item);

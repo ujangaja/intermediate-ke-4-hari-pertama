@@ -8,6 +8,12 @@
         android:title="Tambah"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/tambah_gambar"
+        android:icon="@drawable/ic_tambah"
+        android:title="Tambah"
+        app:showAsAction="ifRoom"/>
+
 
 
 </menu>
