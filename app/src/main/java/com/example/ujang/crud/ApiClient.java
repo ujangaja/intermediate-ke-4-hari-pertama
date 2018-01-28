@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by ujang on 1/27/2018.
  */
-
+//TODO step ke-4
 public class ApiClient {
 
     public static final String BASE_URL = "http://192.168.243.1/iak/";

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+    <!--TODO step ke-2-->
     <ImageView
         android:layout_gravity="center"
         android:layout_width="200dp"

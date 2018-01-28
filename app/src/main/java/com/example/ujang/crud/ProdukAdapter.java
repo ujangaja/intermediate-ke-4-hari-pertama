@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by ujang on 1/27/2018.
  */
-
+//TODO step ke-5
 public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHolder> {
 
     List<Produk> produks;

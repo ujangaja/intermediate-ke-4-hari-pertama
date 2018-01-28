@@ -12,7 +12,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
+//TODO step ke-6
 public class BelajarAndroid extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager manager;
@@ -24,7 +24,7 @@ public class BelajarAndroid extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_belajar_android);
+        setContentView(R.layout.activity_belajar_android);//TODO step ke-10
         recyclerView = (RecyclerView)findViewById(R.id.produkView);
         refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
         manager = new GridLayoutManager(BelajarAndroid.this,2);
@@ -38,9 +38,9 @@ public class BelajarAndroid extends AppCompatActivity {
         });
 
         
-        loadProduk();
+        loadProduk();//TODO akhir step ke-10
     }
-
+//TODO step ke-8
     private void loadProduk() {
         ApiInterface api = ApiClient.getRetrofit()
                 .create(ApiInterface.class);
