@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.ujang.crud.AddProduk">
 
-    <!--TODO harike2 akhir step ke-5-->
+    <!--TODO harike2 akhir step ke-4-->
 
 
     <EditText
@@ -47,7 +47,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/colorPrimary"/>
 
-    </RelativeLayout> 
+    </RelativeLayout>
 
 
 
