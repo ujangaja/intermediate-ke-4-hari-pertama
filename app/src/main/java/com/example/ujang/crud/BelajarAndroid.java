@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 
 import java.util.List;
 
@@ -40,7 +41,16 @@ public class BelajarAndroid extends AppCompatActivity {
         
         loadProduk();//TODO akhir step ke-10
     }
-//TODO step ke-8
+
+    //TODO harike2 step ke-2
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu a) {
+        getMenuInflater().inflate(R.menu.menu_utama,a);
+        return true;
+    }
+    //TODO harike2 akhir step ke-2
+    //TODO step ke-8
     private void loadProduk() {
         ApiInterface api = ApiClient.getRetrofit()
                 .create(ApiInterface.class);
