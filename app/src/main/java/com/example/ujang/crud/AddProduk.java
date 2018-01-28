@@ -6,6 +6,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AddProduk extends AppCompatActivity {
 
@@ -43,5 +48,31 @@ public class AddProduk extends AppCompatActivity {
     }
 
     private void simpan() {
+        //TODO hari ke2 step 7
+        ApiInterface api = ApiClient.getRetrofit().create(ApiInterface.class);
+
+        Call<Value> call = api.tambah(
+                Nama.getText().toString().trim(),
+                Harga.getText().toString().trim() ,
+                Stok.getText().toString().trim());
+
+        call.enqueue(new Callback<Value>() {
+            @Override
+            public void onResponse(Call<Value> call, Response<Value> response) {
+                String value = response.body().getValue();
+                String message = response.body().getMessage();
+                if (value.equals("1")){
+                    Toast.makeText(AddProduk.this,message, Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(AddProduk.this,message, Toast.LENGTH_SHORT).show();
+                }
+            }
+            //TODO hari ke2  akhir step 7
+            @Override
+            public void onFailure(Call<Value> call, Throwable t) {
+                Toast.makeText(AddProduk.this, "Koneksi bermasalah", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }

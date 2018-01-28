@@ -22,7 +22,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("addProduk.php")
-    Call<Value> tambah(@Field("nama") String nama,
+    Call<Value> tambah(@Field("nama_produk") String nama,
                        @Field("harga") String harga,
                        @Field("stok") String setok);
 
