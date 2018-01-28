@@ -1,5 +1,6 @@
 package com.example.ujang.crud;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.List;
 
@@ -50,6 +52,22 @@ public class BelajarAndroid extends AppCompatActivity {
         return true;
     }
     //TODO harike2 akhir step ke-2
+
+    //TODO harike2 step ke-3
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id){
+            case R.id.tambah:
+            startActivity(new Intent(BelajarAndroid.this,AddProduk.class));
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //TODO harike2 akhir step ke-3
+
     //TODO step ke-8
     private void loadProduk() {
         ApiInterface api = ApiClient.getRetrofit()

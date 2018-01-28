@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <!--TODO hari ke2 step ke-1-->
     <item
+        android:id="@+id/tambah"
         android:icon="@drawable/ic_tambah"
         android:title="Tambah"
         app:showAsAction="ifRoom"/>
