@@ -15,7 +15,16 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.jar.Manifest;
+
+import okhttp3.Call;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AddProdukGambar extends AppCompatActivity {
     //TODO hari ke2 step ke-13
@@ -42,6 +51,15 @@ public class AddProdukGambar extends AppCompatActivity {
         Stok = (EditText)findViewById(R.id.stok);
         Submit = (Button)findViewById(R.id.submit);
 
+        //TODO hari ke2 step ke-18
+        Submit.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                simpan();
+            }
+        });
+
         Gambar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +77,37 @@ public class AddProdukGambar extends AppCompatActivity {
         });
 
     }
+
+    private void simpan() {
+        File file = new File(imagePath);
+        ApiInterface api = ApiClient.getRetrofit().create(ApiInterface.class);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file);
+
+        MultipartBody.Part gambar = MultipartBody.Part.createFormData("upload", file.getName(), requestBody);
+        RequestBody nama = RequestBody.create(MediaType.parse("tect/plain"),
+                Nama.getText().toString());
+        RequestBody harga = RequestBody.create(MediaType.parse("tect/plain"),
+                Harga.getText().toString());
+        RequestBody stok = RequestBody.create(MediaType.parse("tect/plain"),
+                Stok.getText().toString());
+
+        retrofit2.Call<ResponseBody>call = api.upload(gambar,nama,harga,stok);
+        call.enqueue(new Callback<ResponseBody    >() {
+            @Override
+            public void onResponse(retrofit2.Call<ResponseBody> call, Response<ResponseBody> response) {
+                Toast.makeText(AddProdukGambar.this, "Berhasil", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(AddProdukGambar.this, BelajarAndroid.class));
+
+            }
+
+
+            @Override
+            public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(AddProdukGambar.this, "Tidak Berhasil ", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }//TODO hari ke2 step ke-18
 
     //TODO hari ke2 step ke-16
 
