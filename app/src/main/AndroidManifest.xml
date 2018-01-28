@@ -4,6 +4,8 @@
 
     <!-- TODO step ke-9 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><!--TODO hari ke2 step ke-10-->
 
     <application
         android:allowBackup="true"
@@ -19,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddProduk"></activity>
+        <activity android:name=".AddProduk" />
+        <activity android:name=".AddProdukGambar"></activity>
+        <activity android:name=".PermissionsActivity"/>
     </application>
 
 </manifest>

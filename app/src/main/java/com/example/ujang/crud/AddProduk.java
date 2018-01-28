@@ -1,5 +1,6 @@
 package com.example.ujang.crud;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -62,6 +63,7 @@ public class AddProduk extends AppCompatActivity {
                 String value = response.body().getValue();
                 String message = response.body().getMessage();
                 if (value.equals("1")){
+                    kosong();
                     Toast.makeText(AddProduk.this,message, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AddProduk.this,message, Toast.LENGTH_SHORT).show();
@@ -74,5 +76,13 @@ public class AddProduk extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void kosong() {
+        Nama.setText("");
+        Harga.setText("");
+        Stok.setText("");
+        Intent i = new Intent(AddProduk.this, BelajarAndroid.class);
+        startActivity(i);
     }
 }
