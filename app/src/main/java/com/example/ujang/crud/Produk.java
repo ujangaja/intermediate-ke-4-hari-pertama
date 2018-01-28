@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class Produk {
-
+//TODO ke-2
     @SerializedName("id")
     String Id;
     @SerializedName("nama_produk")

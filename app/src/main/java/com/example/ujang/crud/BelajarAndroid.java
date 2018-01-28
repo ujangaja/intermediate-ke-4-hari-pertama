@@ -27,7 +27,7 @@ public class BelajarAndroid extends AppCompatActivity {
         setContentView(R.layout.activity_belajar_android);
         recyclerView = (RecyclerView)findViewById(R.id.produkView);
         refreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
-        manager = new GridLayoutManager(BelajarAndroid.this, 2);
+        manager = new GridLayoutManager(BelajarAndroid.this,2);
         recyclerView.setLayoutManager(manager);
         refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
