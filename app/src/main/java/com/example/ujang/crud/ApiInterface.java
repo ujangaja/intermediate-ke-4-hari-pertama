@@ -48,6 +48,10 @@ public interface ApiInterface {
                               @Part("id")RequestBody id,
                               @Part("stok")RequestBody stok);
 
+    @FormUrlEncoded
+    @POST("hapus.php")
+    Call<Value> hapus(@Field("id") String id);
+
 
 
 }

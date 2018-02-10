@@ -1,8 +1,11 @@
 package com.example.ujang.crud;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telecom.Call;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -14,6 +17,8 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailProduk extends AppCompatActivity {
 
@@ -60,8 +65,50 @@ public class DetailProduk extends AppCompatActivity {
                 break;
             case R.id.delete:
                 Toast.makeText(this, "Delete", Toast.LENGTH_SHORT).show();
+                hapus();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void hapus() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Yakin mau dihapus?");
+        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                //hasil dari Ya..
+                ApiInterface apiInterface = ApiClient.getRetrofit().create(ApiInterface.class);
+                retrofit2.Call<Value> call = apiInterface.hapus(prods.getId());
+                call.enqueue(new Callback<Value>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<Value> call, Response<Value> response) {
+                        String value = response.body().getValue();
+                        String message = response.body().getMessage();
+                        if (value.equals("1")){
+                            startActivity(new Intent(DetailProduk.this,BelajarAndroid.class));
+                            Toast.makeText(DetailProduk.this, message, Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(DetailProduk.this, message, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(retrofit2.Call<Value> call, Throwable t) {
+
+                    }
+                })
+
+            }
+        });
+        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
