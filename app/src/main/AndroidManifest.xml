@@ -25,7 +25,8 @@
         <activity android:name=".AddProduk" />
         <activity android:name=".AddProdukGambar" />
         <activity android:name=".PermissionsActivity" />
-        <activity android:name=".DetailProduk"></activity>
+        <activity android:name=".DetailProduk" />
+        <activity android:name=".EditProduk"></activity>
     </application>
 
 </manifest>

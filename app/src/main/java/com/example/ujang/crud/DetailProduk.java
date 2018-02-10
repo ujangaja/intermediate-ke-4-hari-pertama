@@ -29,6 +29,6 @@ public class DetailProduk extends AppCompatActivity {
         Nama.setText(prods.getNama());
         Harga.setText(prods.getHarga());
         Stok.setText(prods.getStok());
-        Picasso.with(DetailProduk.this).load("http://192.168.1.101:8080/iak/produk/"+prods.getGambar()).into(Gambar);
+        Picasso.with(DetailProduk.this).load("http://192.168.243.1/iak/"+prods.getGambar()).into(Gambar);
     }
 }
