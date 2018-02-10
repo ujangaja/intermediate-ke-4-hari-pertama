@@ -43,6 +43,12 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
         Picasso.with(holder.itemView.getContext())
                 .load("http://192.168.243.1/iak/"+produks.get(position).getGambar())
                 .into(holder.Gambar);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override

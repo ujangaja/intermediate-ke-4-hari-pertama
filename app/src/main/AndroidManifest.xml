@@ -4,9 +4,10 @@
 
     <!-- TODO step ke-9 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/><!--TODO hari ke2 step ke-10-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- TODO hari ke2 step ke-10 -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddProduk" />
-        <activity android:name=".AddProdukGambar"></activity>
-        <activity android:name=".PermissionsActivity"/>
+        <activity android:name=".AddProdukGambar" />
+        <activity android:name=".PermissionsActivity" />
+        <activity android:name=".DetailProduk"></activity>
     </application>
 
 </manifest>
