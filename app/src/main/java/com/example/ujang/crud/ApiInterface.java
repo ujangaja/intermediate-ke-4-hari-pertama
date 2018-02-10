@@ -39,6 +39,15 @@ public interface ApiInterface {
                               @Part("harga")RequestBody harga,
                               @Part("stok")RequestBody stok);
 
+    //TODO hari ke3
+    @Multipart
+    @POST("editProdukGambar.php")
+    Call<ResponseBody> edit(@Part MultipartBody.Part file,
+                              @Part("nama")RequestBody nama,
+                              @Part("harga")RequestBody harga,
+                              @Part("id")RequestBody id,
+                              @Part("stok")RequestBody stok);
+
 
 
 }
