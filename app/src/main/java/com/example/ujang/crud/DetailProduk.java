@@ -97,7 +97,7 @@ public class DetailProduk extends AppCompatActivity {
                     public void onFailure(retrofit2.Call<Value> call, Throwable t) {
 
                     }
-                })
+                });
 
             }
         });

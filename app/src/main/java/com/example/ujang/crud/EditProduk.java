@@ -35,7 +35,7 @@ public class EditProduk extends AppCompatActivity {
     String imagePage;
     PermissionsChecker Cheker;
     @BindView(R.id.submit)Button esubmit;
-    @BindView(R.id.edit)EditText enama;
+    @BindView(R.id.nama)EditText enama;
     @BindView(R.id.harga)EditText eharga;
     @BindView(R.id.stok)EditText estok;
     @BindView(R.id.gambar)ImageView egambar;
@@ -49,7 +49,7 @@ public class EditProduk extends AppCompatActivity {
         enama.setText(getIntent().getStringExtra("nama"));
         eharga.setText(getIntent().getStringExtra("harga"));
         estok.setText(getIntent().getStringExtra("stok"));
-        Picasso.with(this).load("http://192.168.1.101:8080/iak/produk/"+getIntent()
+        Picasso.with(this).load("http://192.168.243.1/iak/"+getIntent()
                 .getStringExtra("gambar")).into(egambar);
         esubmit.setOnClickListener(new View.OnClickListener() {
             @Override

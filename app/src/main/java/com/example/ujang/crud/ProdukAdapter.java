@@ -1,6 +1,7 @@
 package com.example.ujang.crud;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
     }
 
     @Override
-    public void onBindViewHolder(ProdukHolder holder, int position) {
+    public void onBindViewHolder(final ProdukHolder holder, final int position) {
         holder.Harga.setText(produks.get(position).getHarga());
         holder.NamaProduk.setText(produks.get(position).getNama());
         holder.Stok.setText(produks.get(position).getStok());
@@ -46,7 +48,10 @@ public class ProdukAdapter extends RecyclerView.Adapter<ProdukAdapter.ProdukHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Produk data = produks.get(position);
+                Intent i = new Intent(holder.itemView.getContext(),DetailProduk.class);
+                i.putExtra("produk",new GsonBuilder().create().toJson(data));
+                holder.itemView.getContext().startActivity(i);
             }
         });
     }
